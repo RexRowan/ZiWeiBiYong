@@ -1,0 +1,477 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>紫微辟雍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;600;900&display=swap">
+<style>
+/* 版式：門匾居中，兩側中軸置玄鳥圓牌與雲雷紋，正文單欄如帛書。 */
+:root{
+  --xuan:#111111;        /* 水德·玄黑：底色 */
+  --xuan-2:#181716;
+  --jin:#E5D3B3;         /* 金德·白金：邊框、次級標題 */
+  --zhu:#9B1C1C;         /* 火德·朱砂：標籤、按鈕、重點線 */
+  --bo:#F9F6F0;          /* 木德·縑帛白：正文 */
+  --bo-dim:rgba(249,246,240,.72);
+  --jin-line:rgba(229,211,179,.34);
+  --jin-faint:rgba(229,211,179,.14);
+  --f-seal:"FZXiaoZhuanTi-S13T","FZXiaoZhuan","HYXiaoZhuanTi","Noto Serif TC","Songti TC","SimSun",serif;
+  --f-body:"Noto Serif TC","Songti TC","PMingLiU","Source Han Serif TC",serif;
+  --f-ui:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --meander:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M4 4H44V44H12V12H36V36H20V20H28' fill='none' stroke='%23E5D3B3' stroke-width='2'/%3E%3C/svg%3E");
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--xuan)}
+body{margin:0;background:var(--xuan);color:var(--bo);font:400 1.0625rem/1.9 var(--f-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:var(--zhu);color:var(--bo)}
+:focus-visible{outline:2px solid var(--jin);outline-offset:3px}
+.wrap{max-width:1000px;margin-inline:auto;padding-inline:16px}
+
+/* 頂欄與導覽 */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(17,17,17,.97);border-bottom:1px solid var(--jin-line)}
+.bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.25rem 1rem;min-height:56px}
+.brand{font-family:var(--f-seal);font-weight:900;font-size:1.35rem;letter-spacing:.3em;color:var(--jin);text-decoration:none}
+.menu-btn{font:500 .875rem var(--f-ui);letter-spacing:.2em;color:var(--bo);background:transparent;border:1px solid var(--jin-line);padding:.4rem 1rem;cursor:pointer}
+.menu-btn:hover{border-color:var(--jin)}
+#nav ul{list-style:none;margin:0;padding:0}
+.tl{display:block;font:500 .9375rem var(--f-ui);letter-spacing:.25em;color:var(--bo);background:transparent;border:0;border-bottom:3px solid transparent;padding:.95rem .9rem .8rem;text-decoration:none;cursor:pointer}
+.tl:hover{color:var(--jin)}
+#nav li.on>.tl,#nav li.open>.tl{border-bottom-color:var(--zhu);color:var(--jin)}
+.mega{display:none}
+li.open>.mega{display:block}
+.mega-in{max-width:1000px;margin:0 auto;padding:1.25rem 16px 1.5rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:1.25rem 1.75rem}
+.col{min-width:0}
+.col.wide{grid-column:span 2}
+.col h3{font:500 .75rem var(--f-ui);letter-spacing:.3em;color:var(--jin);border-bottom:1px solid var(--jin-line);padding-bottom:.35rem;margin:0 0 .65rem}
+.links{display:flex;flex-wrap:wrap;gap:.2rem 1rem;margin-bottom:.4rem}
+.col a{font-size:1rem;line-height:1.7;color:var(--bo);text-decoration:none;border-bottom:1px solid transparent}
+.col a:hover,.col a[aria-current]{color:var(--jin);border-bottom-color:var(--zhu)}
+.sub{display:flex;gap:.9rem;align-items:baseline;flex-wrap:wrap;margin-bottom:.1rem}
+.sh{font:400 .8125rem var(--f-ui);letter-spacing:.15em;color:var(--bo-dim);min-width:3.2em}
+@media (min-width:821px){
+  .menu-btn{display:none}
+  #nav ul{display:flex;gap:.15rem}
+  .mega{position:absolute;left:0;right:0;top:100%;background:var(--xuan-2);border-bottom:1px solid var(--jin);box-shadow:0 20px 32px rgba(0,0,0,.55)}
+}
+@media (max-width:820px){
+  #nav{display:none;flex-basis:100%;max-height:calc(100vh - 64px);max-height:calc(100dvh - 64px);overflow-y:auto;padding-bottom:1rem}
+  #nav.open{display:block}
+  .tl{width:100%;text-align:left;border-bottom:1px solid var(--jin-faint);padding-inline:0}
+  #nav li.on>.tl,#nav li.open>.tl{border-bottom-color:var(--zhu)}
+  .mega-in{padding:1rem 0 .5rem}
+  .col.wide{grid-column:auto}
+}
+
+/* 兩側中軸 */
+.axis{display:none}
+@media (min-width:1280px){
+  .axis{display:block;position:fixed;top:0;bottom:0;width:72px;z-index:0;pointer-events:none;opacity:.6}
+  .axis::before{content:"";position:absolute;inset:0;background:var(--meander) repeat-y center top/48px 48px;-webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);opacity:.7}
+  .axis.l{left:calc(50% - 500px - 124px)}
+  .axis.r{right:calc(50% - 500px - 124px)}
+  .medal{position:absolute;left:0;top:24vh;width:72px;height:72px;color:var(--jin)}
+}
+.medal circle{fill:var(--xuan);stroke:var(--jin-line);stroke-width:1.5}
+
+/* 主體 */
+main{position:relative;z-index:1;padding-bottom:4rem;min-height:62vh}
+.page{max-width:44rem;margin-inline:auto}
+.plaque{position:relative;margin:2.75rem 8px 2.25rem;padding:clamp(1.75rem,6vw,3.5rem) 1rem;border:1px solid var(--jin);outline:1px solid var(--jin-line);outline-offset:6px;background:linear-gradient(var(--xuan-2),var(--xuan));text-align:center}
+.plaque h1{margin:.4rem 0 0;padding-left:.3em;font-family:var(--f-seal);font-weight:900;font-size:clamp(2.7rem,12vw,5.8rem);line-height:1.15;letter-spacing:.3em;color:var(--jin);text-shadow:0 0 .6px var(--jin),0 3px 0 #000}
+.kicker{margin:0;padding-left:.5em;font:400 .8125rem var(--f-ui);letter-spacing:.5em;color:var(--bo-dim)}
+.rule{display:block;width:3.2rem;height:3px;margin:1.4rem auto 1.1rem;background:var(--zhu)}
+.motto{margin:0;padding-left:.35em;font-size:1.2rem;letter-spacing:.35em;color:var(--bo)}
+.intro{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 2rem;max-width:44rem;margin:0 auto 3rem}
+.intro p{margin:0;flex:1 1 18rem}
+.btn{display:inline-block;font:500 .9375rem var(--f-ui);letter-spacing:.3em;padding:.7rem 1.6rem .7rem 1.9rem;color:var(--bo);background:var(--zhu);border:1px solid var(--zhu);text-decoration:none}
+.btn:hover{border-color:var(--jin)}
+.sec{font:500 .8125rem var(--f-ui);letter-spacing:.4em;color:var(--jin);display:flex;align-items:center;gap:1rem;margin:0 0 1rem}
+.sec::after{content:"";flex:1;height:1px;background:var(--jin-line)}
+.recent{max-width:44rem;margin:0 auto}
+.row{display:grid;grid-template-columns:1fr auto;gap:.1rem 1rem;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--jin-faint);text-decoration:none}
+.row:hover .rt{color:var(--jin)}
+.rt{font-size:1.15rem;font-weight:600}
+.rb,.rc{font:400 .8125rem var(--f-ui);color:var(--bo-dim);letter-spacing:.08em}
+.rc{text-align:right}
+.note{margin:1rem 0 0;font:400 .8125rem/1.7 var(--f-ui);color:var(--bo-dim)}
+.tag{display:inline-block;font:500 .6875rem/1.6 var(--f-ui);letter-spacing:.2em;padding:0 .55rem 0 .7rem;background:var(--zhu);color:var(--bo);vertical-align:.1em;margin-left:.4rem}
+
+/* 欄目頁 */
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:.2rem .6rem;margin:2.25rem 0 1.25rem;font:400 .8125rem var(--f-ui);letter-spacing:.12em;color:var(--bo-dim)}
+.crumbs i{font-style:normal;color:var(--jin-line)}
+.crumbs a{text-decoration:none}
+.crumbs a:hover{color:var(--jin)}
+.crumbs [aria-current]{color:var(--jin)}
+h2.ph{margin:0 0 1.5rem;font-family:var(--f-seal);font-weight:900;font-size:clamp(2.2rem,8vw,3.4rem);line-height:1.2;letter-spacing:.25em;color:var(--jin)}
+.dfn{margin:0 0 2.5rem;padding:1.1rem 1.25rem 1.2rem;border:1px solid var(--jin-line)}
+.dfn b{display:inline-block;font:500 .75rem var(--f-ui);letter-spacing:.35em;color:var(--jin);margin-bottom:.35rem}
+.dfn p{margin:0}
+.entry{padding:1.9rem 0 2rem;border-top:1px solid var(--jin-line)}
+.entry h3{margin:0;font-size:1.4rem;font-weight:600;letter-spacing:.08em}
+.by{margin:.2rem 0 1.25rem;font:400 .8125rem var(--f-ui);letter-spacing:.1em;color:var(--bo-dim)}
+.verse-wrap{overflow-x:auto;padding-block:.25rem}
+.verse{font-size:1.2rem;line-height:2.1;letter-spacing:.12em}
+.verse p{margin:0}
+.verse.v{writing-mode:vertical-rl;text-orientation:mixed;block-size:17.5em;padding-inline:.5rem;margin-inline:auto;width:max-content}
+.vtoggle{margin-top:1rem;font:400 .8125rem var(--f-ui);letter-spacing:.25em;color:var(--bo);background:transparent;border:1px solid var(--jin-line);padding:.3rem .9rem .3rem 1.1rem;cursor:pointer}
+.vtoggle:hover{border-color:var(--jin);color:var(--jin)}
+.empty{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:2.5rem 1rem;border:1px dashed var(--jin-line);text-align:center;color:var(--bo-dim)}
+.empty svg{width:56px;height:66px;color:var(--jin-line)}
+.empty p{margin:0}
+.empty .e1{font-size:1.15rem;letter-spacing:.4em;padding-left:.4em;color:var(--bo)}
+.empty .e2{font:400 .8125rem var(--f-ui);letter-spacing:.1em}
+.pager{display:flex;justify-content:space-between;gap:1rem;margin-top:3rem;padding-top:1.25rem;border-top:1px solid var(--jin-line)}
+.pager a{display:flex;flex-direction:column;gap:.1rem;text-decoration:none;font-size:1.15rem;letter-spacing:.15em}
+.pager a.nx{text-align:right;margin-left:auto}
+.pager small{font:400 .75rem var(--f-ui);letter-spacing:.3em;color:var(--bo-dim)}
+.pager a:hover{color:var(--jin)}
+
+/* 俯瞰 */
+.ov{margin:0 0 3rem}
+.ovh{margin:0 0 1.25rem;font-family:var(--f-seal);font-weight:900;font-size:2rem;letter-spacing:.3em;color:var(--jin)}
+.ovg{margin:0 0 1.4rem}
+.ovg h3{display:flex;align-items:center;gap:.8rem;margin:0 0 .7rem;font:500 .8125rem var(--f-ui);letter-spacing:.3em;color:var(--bo-dim)}
+.ovg h3::after{content:"";flex:1;height:1px;background:var(--jin-faint)}
+.ovg .ovg{margin-left:1.25rem}
+.ovlinks{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:.6rem}
+.ovl{display:inline-flex;align-items:baseline;gap:.7rem;padding:.35rem .85rem .4rem;border:1px solid var(--jin-line);text-decoration:none}
+.ovl:hover{border-color:var(--jin);color:var(--jin)}
+.ovl i{font:400 .6875rem var(--f-ui);font-style:normal;letter-spacing:.1em;color:var(--bo-dim)}
+
+.foot{position:relative;z-index:1;margin-top:1rem;padding-block:0 3rem;text-align:center;color:var(--bo-dim)}
+.band{height:24px;margin-bottom:1.75rem;background:var(--meander) repeat-x center/24px 24px;opacity:.35}
+.foot svg{width:34px;height:40px;color:var(--jin-line)}
+.foot p{margin:.4rem 0 0;font:400 .8125rem var(--f-ui);letter-spacing:.35em;padding-left:.35em}
+@media (max-width:520px){
+  .row{grid-template-columns:1fr}
+  .rc{text-align:left}
+  .ovg .ovg{margin-left:.5rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+<div lang="zh-Hant">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="bird" viewBox="0 0 120 140" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M56 26L60 10L64 26"/>
+      <circle cx="60" cy="34" r="9"/>
+      <circle cx="56" cy="32" r="1.6" fill="currentColor"/>
+      <circle cx="64" cy="32" r="1.6" fill="currentColor"/>
+      <path d="M52 44C46 56 46 74 54 90H66C74 74 74 56 68 44"/>
+      <path d="M60 52V82"/>
+      <path d="M52 50C40 42 20 42 4 56C20 54 32 60 42 74C46 66 50 62 54 62"/>
+      <path d="M68 50C80 42 100 42 116 56C100 54 88 60 78 74C74 66 70 62 66 62"/>
+      <path d="M14 56C26 52 36 56 44 66M22 58C30 58 36 62 40 70"/>
+      <path d="M106 56C94 52 84 56 76 66M98 58C90 58 84 62 80 70"/>
+      <path d="M54 90L42 132L60 112L78 132L66 90"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="axis l" aria-hidden="true"><svg class="medal" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56"/><use href="#bird" x="22" y="16" width="76" height="89"/></svg></div>
+<div class="axis r" aria-hidden="true"><svg class="medal" viewBox="0 0 120 120"><circle cx="60" cy="60" r="56"/><use href="#bird" x="22" y="16" width="76" height="89"/></svg></div>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#home">紫微辟雍</a>
+    <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">目錄</button>
+    <nav id="nav" aria-label="主導覽"><ul id="navList"></ul></nav>
+  </div>
+</header>
+
+<main class="wrap" id="view"></main>
+
+<footer class="foot">
+  <div class="band" aria-hidden="true"></div>
+  <svg aria-hidden="true"><use href="#bird"/></svg>
+  <p>以文會友　以友輔仁</p>
+</footer>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ───── 結構：沿用原站「主頁／書冊／文／書畫／聯繫」 ───── */
+  var L = function (t, id) { return { t: t, id: id }; };
+  var TREE = [
+    L('主頁', 'home'),
+    { t: '書冊', kids: [L('俯瞰', 'fukan')] },
+    { t: '文', kids: [
+      { t: '奏', kids: [L('策', 'ce')] },
+      { t: '議', kids: [L('原', 'yuan'), L('辨', 'bian'), L('論', 'lun'), L('說', 'shuo')] },
+      L('銘', 'ming'), L('駢', 'pian'),
+      { t: '詩詞歌賦', kids: [
+        { t: '詩', kids: [L('古詩', 'gushi'), L('近體詩', 'jintishi'), L('新詩', 'xinshi')] },
+        { t: '風騷', kids: [L('風', 'feng'), L('騷', 'sao')] },
+        L('詞', 'ci'), L('賦', 'fu'),
+        { t: '樂府', kids: [L('古樂府', 'guyuefu'), L('新樂府', 'xinyuefu')] },
+        { t: '序跋', kids: [L('序', 'xu'), L('跋', 'ba')] },
+        L('對聯', 'duilian')
+      ] },
+      { t: '小說', kids: [L('傳奇', 'chuanqi')] },
+      { t: '注疏', kids: [L('注', 'zhu'), L('疏', 'shu')] },
+      L('偈', 'ji'), L('散文', 'sanwen')
+    ] },
+    { t: '書畫', kids: [L('書', 'shufa'), L('畫', 'hua')] },
+    L('聯繫', 'lianxi')
+  ];
+
+  /* ───── 各體釋名 ───── */
+  var INFO = {
+    ce: '策，古代臣下就政事陳述謀略、對答策問的文體，常見於奏疏與科舉策論，重在切中時務、條理分明。',
+    yuan: '原，推究事物本源的議論文體，自根柢處說起，立論明斷。韓愈《原道》《原毀》為其典範。',
+    bian: '辨，辨析是非真偽、廓清名實的議論文體，多針對一事一說，逐層辯駁。韓愈《諱辨》為其代表。',
+    lun: '論，就事理加以剖析、推演而下斷語的文體，講求邏輯與氣勢。賈誼《過秦論》為其名篇。',
+    shuo: '說，以陳述己見、闡發事理為主的文體，題材多小而寄意深，常借物起興。韓愈《師說》、周敦頤《愛蓮說》皆屬此類。',
+    ming: '銘，原為刻於器物以自警或紀功的文字，後成韻文一體，篇幅短小，句式整飭。劉禹錫《陋室銘》為其代表。',
+    pian: '駢，即駢體文，以對偶、四六句式、聲律與用典見長，盛於六朝。王勃《滕王閣序》、庾信《哀江南賦序》為其名篇。',
+    gushi: '古詩，又稱古體詩，不拘平仄與句數，長短、押韻皆較自由。《古詩十九首》為其源頭，漢魏六朝以至唐宋皆有佳作。',
+    jintishi: '近體詩，又稱今體詩，成熟於唐代，包括律詩與絕句，講究平仄、對仗與押韻，格律嚴整。',
+    xinshi: '新詩，以白話寫成的詩，興起於五四新文化運動前後，不拘舊體格律，重在意象與節奏。',
+    feng: '風，指《詩經》十五國風，是各地的民間歌謠，反映當時的生活與情感，為中國詩歌的源頭之一。',
+    sao: '騷，以屈原《離騷》為代表的楚辭體，句式參差，多用「兮」字，想像瑰麗，抒情深切，與《詩經》並稱「風騷」。',
+    ci: '詞，配合樂曲而作，依詞牌填寫，句式長短錯落，盛於宋代。有婉約、豪放諸般風格，李煜、柳永、蘇軾、李清照皆為大家。',
+    fu: '賦，鋪陳事物、抒寫情志的文體，介於詩與文之間，講究辭采與排比，漢代最盛。司馬相如《子虛賦》、班固《兩都賦》為其代表。',
+    guyuefu: '古樂府，漢魏六朝由樂府機關採集或創作的歌辭，多敘事，貼近民間。《木蘭詩》、《孔雀東南飛》為其名篇。',
+    xinyuefu: '新樂府，唐代詩人不沿用古題、即事名篇的樂府詩，倡導者為元稹、白居易，旨在反映民生疾苦。',
+    xu: '序，說明著作緣起、體例與旨趣的文字，亦有贈別、宴集時所作之序。王羲之《蘭亭集序》為其代表。',
+    ba: '跋，附於書籍、字畫、碑帖之後，記述來歷、考訂真偽或抒發感想的短文。',
+    duilian: '對聯，上下兩聯字數相等、詞性相對、平仄相諧的文字，可題於楹柱門庭，亦可抒懷言志。',
+    chuanqi: '傳奇，原指唐代文言短篇小說，如《鶯鶯傳》、《霍小玉傳》；後世亦用以稱明清長篇戲曲，如《牡丹亭》。',
+    zhu: '注，對經典文句中的字詞、名物、典故所作的解釋，目的在疏通原文。',
+    shu: '疏，在舊注的基礎上進一步申說、補充，兼釋經文與前注。孔穎達《五經正義》為其代表。',
+    ji: '偈，源自梵語「伽陀」，是佛經中的韻語，常以四句為一偈，用以讚頌或闡明教義，後世禪師亦以偈示悟。',
+    sanwen: '散文，不拘韻律與駢偶、行文自由的文章，與韻文、駢文相對。唐宋八大家之文為古文典範。',
+    shufa: '陳列書法作品。',
+    hua: '陳列繪畫作品。'
+  };
+
+  /* ───── 篇目：在對應欄目下新增 { title, by, lines:[…] } 即可上架 ───── */
+  var ENTRIES = {
+    feng: [{ title: '關雎（節錄）', by: '《詩經．周南》', sample: true,
+      lines: ['關關雎鳩，在河之洲。', '窈窕淑女，君子好逑。'] }],
+    sao: [{ title: '離騷（節錄）', by: '屈原', sample: true,
+      lines: ['帝高陽之苗裔兮，朕皇考曰伯庸。', '攝提貞於孟陬兮，惟庚寅吾以降。'] }],
+    jintishi: [{ title: '春望', by: '杜甫', sample: true,
+      lines: ['國破山河在，城春草木深。', '感時花濺淚，恨別鳥驚心。', '烽火連三月，家書抵萬金。', '白頭搔更短，渾欲不勝簪。'] }],
+    ci: [{ title: '虞美人', by: '李煜', sample: true,
+      lines: ['春花秋月何時了，往事知多少。', '小樓昨夜又東風，故國不堪回首月明中。', '雕欄玉砌應猶在，只是朱顏改。', '問君能有幾多愁，恰似一江春水向東流。'] }]
+  };
+
+  /* ───── 展平 ───── */
+  var leaves = [];
+  (function walk(nodes, path) {
+    nodes.forEach(function (n) {
+      if (n.kids) walk(n.kids, path.concat(n.t));
+      else leaves.push({ id: n.id, t: n.t, path: path });
+    });
+  })(TREE, []);
+  var byId = {};
+  leaves.forEach(function (l) { byId[l.id] = l; });
+  var content = leaves.filter(function (l) { return INFO[l.id]; });
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c];
+    });
+  }
+  var BIRD = '<svg aria-hidden="true" viewBox="0 0 120 140"><use href="#bird"/></svg>';
+
+  /* ───── 導覽 ───── */
+  function linkHTML(n) { return '<a href="#' + n.id + '">' + n.t + '</a>'; }
+  function subHTML(kids) {
+    var out = '', run = '';
+    function flush() { if (run) { out += '<div class="links">' + run + '</div>'; run = ''; } }
+    kids.forEach(function (k) {
+      if (k.kids) {
+        flush();
+        out += '<div class="sub"><span class="sh">' + k.t + '</span><div class="links">' + k.kids.map(linkHTML).join('') + '</div></div>';
+      } else run += linkHTML(k);
+    });
+    flush();
+    return out;
+  }
+  function megaHTML(node) {
+    var cols = [], run = [];
+    node.kids.forEach(function (k) {
+      if (k.kids) {
+        if (run.length) { cols.push({ leaves: run }); run = []; }
+        cols.push({ node: k });
+      } else run.push(k);
+    });
+    if (run.length) cols.push({ leaves: run });
+    return '<div class="mega-in">' + cols.map(function (c) {
+      if (c.leaves) return '<div class="col"><div class="links">' + c.leaves.map(linkHTML).join('') + '</div></div>';
+      var wide = c.node.kids.some(function (k) { return k.kids; }) ? ' wide' : '';
+      return '<div class="col' + wide + '"><h3>' + c.node.t + '</h3>' + subHTML(c.node.kids) + '</div>';
+    }).join('') + '</div>';
+  }
+
+  var nav = document.getElementById('nav');
+  var navList = document.getElementById('navList');
+  var menuBtn = document.getElementById('menuBtn');
+  navList.innerHTML = TREE.map(function (n) {
+    return n.kids
+      ? '<li class="has"><button type="button" class="tl" aria-expanded="false">' + n.t + '</button><div class="mega">' + megaHTML(n) + '</div></li>'
+      : '<li><a class="tl" href="#' + n.id + '">' + n.t + '</a></li>';
+  }).join('');
+
+  function closeMenus() {
+    Array.prototype.forEach.call(navList.querySelectorAll('li.open'), function (li) {
+      li.classList.remove('open');
+      var b = li.querySelector('button.tl');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    });
+  }
+  function closeAll() {
+    closeMenus();
+    nav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }
+  function markActive(id) {
+    Array.prototype.forEach.call(nav.querySelectorAll('a'), function (a) {
+      if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'page');
+      else a.removeAttribute('aria-current');
+    });
+    Array.prototype.forEach.call(navList.children, function (li) {
+      li.classList.toggle('on', !!li.querySelector('[aria-current]'));
+    });
+  }
+
+  /* ───── 頁面 ───── */
+  var view = document.getElementById('view');
+  var current = null;
+
+  function entryHTML(e) {
+    return '<article class="entry"><h3>' + esc(e.title) + '</h3>' +
+      '<p class="by">' + esc(e.by) + (e.sample ? '<span class="tag">範例</span>' : '') + '</p>' +
+      '<div class="verse-wrap"><div class="verse">' +
+      e.lines.map(function (l) { return '<p>' + esc(l) + '</p>'; }).join('') +
+      '</div></div><button type="button" class="vtoggle" aria-pressed="false">直排</button></article>';
+  }
+  function emptyHTML() {
+    return '<div class="empty">' + BIRD + '<p class="e1">此欄待錄</p><p class="e2">新作入藏後，將列於此處。</p></div>';
+  }
+
+  function homeHTML() {
+    var recent = [];
+    content.forEach(function (l) {
+      (ENTRIES[l.id] || []).forEach(function (e) { recent.push({ e: e, l: l }); });
+    });
+    var rows = recent.map(function (r) {
+      return '<a class="row" href="#' + r.l.id + '"><span class="rt">' + esc(r.e.title) +
+        (r.e.sample ? '<span class="tag">範例</span>' : '') + '</span><span class="rc">' + r.l.path.join('．') + '．' + r.l.t +
+        '</span><span class="rb">' + esc(r.e.by) + '</span></a>';
+    }).join('');
+    return '<section class="plaque" aria-label="門匾"><p class="kicker">中國文學　漢學　古文</p>' +
+      '<h1>紫微辟雍</h1><span class="rule"></span><p class="motto">以文會友，以友輔仁。</p></section>' +
+      '<section class="intro"><p>本站依文體編次：自奏議、銘駢，至詩詞歌賦、小說、注疏、偈與散文，另設書畫一欄。</p>' +
+      '<a class="btn" href="#fukan">俯瞰全站</a></section>' +
+      '<section class="recent"><h2 class="sec">近錄</h2>' + (rows || emptyHTML()) +
+      '<p class="note">標「範例」者為示意之公版古籍篇目，供版面展示，日後可由新作替換。</p></section>';
+  }
+
+  function ovLeaf(n) {
+    var c = (ENTRIES[n.id] || []).length;
+    return '<a class="ovl" href="#' + n.id + '"><span>' + n.t + '</span><i>' + (c ? c + ' 篇' : '待錄') + '</i></a>';
+  }
+  function ovBody(kids) {
+    var out = '', run = '';
+    function fl() { if (run) { out += '<div class="ovlinks">' + run + '</div>'; run = ''; } }
+    kids.forEach(function (k) {
+      if (k.kids) { fl(); out += '<div class="ovg"><h3>' + k.t + '</h3>' + ovBody(k.kids) + '</div>'; }
+      else run += ovLeaf(k);
+    });
+    fl();
+    return out;
+  }
+  function fukanHTML() {
+    var tops = TREE.filter(function (n) { return n.kids && (n.t === '文' || n.t === '書畫'); });
+    return '<div class="crumbs"><a href="#home">主頁</a><i>›</i><span>書冊</span><i>›</i><span aria-current="page">俯瞰</span></div>' +
+      '<h2 class="ph">俯瞰</h2>' +
+      tops.map(function (t) { return '<section class="ov"><h2 class="ovh">' + t.t + '</h2>' + ovBody(t.kids) + '</section>'; }).join('');
+  }
+
+  function leafHTML(l) {
+    var es = ENTRIES[l.id] || [];
+    var i = content.indexOf(l), prev = content[i - 1], next = content[i + 1];
+    var crumbs = '<a href="#home">主頁</a>' + l.path.map(function (p) { return '<i>›</i><span>' + p + '</span>'; }).join('') +
+      '<i>›</i><span aria-current="page">' + l.t + '</span>';
+    return '<div class="page"><div class="crumbs">' + crumbs + '</div>' +
+      '<h2 class="ph">' + l.t + '</h2>' +
+      '<div class="dfn"><b>釋名</b><p>' + INFO[l.id] + '</p></div>' +
+      (es.length ? es.map(entryHTML).join('') : emptyHTML()) +
+      '<div class="pager">' +
+      (prev ? '<a href="#' + prev.id + '"><small>上一欄</small>' + prev.t + '</a>' : '<span></span>') +
+      (next ? '<a class="nx" href="#' + next.id + '"><small>下一欄</small>' + next.t + '</a>' : '<span></span>') +
+      '</div></div>';
+  }
+
+  function lianxiHTML() {
+    return '<div class="page"><div class="crumbs"><a href="#home">主頁</a><i>›</i><span aria-current="page">聯繫</span></div>' +
+      '<h2 class="ph">聯繫</h2>' +
+      '<div class="dfn"><b>以文會友</b><p>歡迎同道論文談藝。</p></div>' +
+      '<div class="empty">' + BIRD + '<p class="e1">聯繫方式待公布</p></div></div>';
+  }
+
+  function norm(id) {
+    return (id === 'home' || id === 'fukan' || id === 'lianxi' || (byId[id] && INFO[id])) ? id : 'home';
+  }
+  function render(id, scroll) {
+    id = norm(id);
+    current = id;
+    view.innerHTML = id === 'home' ? homeHTML()
+      : id === 'fukan' ? fukanHTML()
+      : id === 'lianxi' ? lianxiHTML()
+      : leafHTML(byId[id]);
+    markActive(id);
+    closeAll();
+    if (scroll) window.scrollTo(0, 0);
+  }
+  function go(id) {
+    try { if (location.hash !== '#' + id) location.hash = id; } catch (e) { /* 忽略 */ }
+    render(id, true);
+  }
+
+  /* ───── 事件 ───── */
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (!t.closest) return;
+    var a = t.closest('a[href^="#"]');
+    if (a) { e.preventDefault(); go(a.getAttribute('href').slice(1)); return; }
+    var tl = t.closest('button.tl');
+    if (tl) {
+      var li = tl.parentNode, was = li.classList.contains('open');
+      closeMenus();
+      if (!was) { li.classList.add('open'); tl.setAttribute('aria-expanded', 'true'); }
+      return;
+    }
+    var vt = t.closest('.vtoggle');
+    if (vt) {
+      var verse = vt.parentNode.querySelector('.verse');
+      var on = verse.classList.toggle('v');
+      vt.setAttribute('aria-pressed', on ? 'true' : 'false');
+      vt.textContent = on ? '橫排' : '直排';
+      return;
+    }
+    if (t.closest('#menuBtn')) {
+      var open = nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      return;
+    }
+    if (!t.closest('#nav')) closeMenus();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+  window.addEventListener('hashchange', function () {
+    var id = norm((location.hash || '#home').slice(1));
+    if (id !== current) render(id, true);
+  });
+
+  render((location.hash || '#home').slice(1), false);
+})();
+</script>
+
+</body></html>
